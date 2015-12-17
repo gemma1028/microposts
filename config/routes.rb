@@ -7,9 +7,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-<<<<<<< HEAD
   resources :microposts
   resources :relationships, only: [:create, :destroy]
-=======
->>>>>>> user-profile
 end
