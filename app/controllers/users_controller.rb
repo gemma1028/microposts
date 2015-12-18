@@ -33,6 +33,24 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def following
+    @title = "フォロー"
+    @user = User.find(params[:id])
+    @users = @user.following_users
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "フォロワー"
+    @user = User.find(params[:id])
+    @users = @user.follower_users
+    render 'show_follow'
+  end
+  
+  def index
+    @users = User.all
+  end
 
   private  
 
