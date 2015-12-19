@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   before_action :set_user, only: [:show, :edit, :update] 
+  before_action :logged_in_user, only: [:index,]
   before_action :from_current_user, only: [:edit, :update] 
 
   def show
@@ -34,6 +35,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+  end
+ 
   private  
 
   def from_current_user 
@@ -51,4 +56,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :region) 
   end
   
+ 
 end

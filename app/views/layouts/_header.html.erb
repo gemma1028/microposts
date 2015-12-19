@@ -1,12 +1,20 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "twitters", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", '#' %></li>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-menu">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">twitters</a>
+        </div>
+        <div class="collapse navbar-collapse" id="site-menu">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Help", '#' %></li>
         <% if logged_in? %>
-          <li><%= link_to "ユーザー", '#' %></li>
+          <li><%= link_to "ユーザー", users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               アカウント <b class="caret"></b>
@@ -23,7 +31,8 @@
         <% else %>
           <li><%= link_to "ログイン", login_path %></li>
         <% end %>
-      </ul>
-    </nav>
-  </div>
+          </ul>
+        </div>
+      </div>
 </header>
+  
