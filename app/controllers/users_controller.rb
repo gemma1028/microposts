@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
+    @microposts = @user.microposts.page(params[:page]).per(5)
   end
 
   def new
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(5)
   end
  
   private  
