@@ -6,8 +6,8 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-    <span><%= link_to "投稿を見る", current_user %></span>
-    <span><%= pluralize(current_user.microposts.count, "tweet") %></span>
+    <span><%= link_to "投稿を見る", @user %></span>
+    <span><%= pluralize(@user.microposts.count, "tweet") %></span>
     </section>
     
     <section class="stats">
