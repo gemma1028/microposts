@@ -56,8 +56,8 @@ class UsersController < ApplicationController
 
   def from_current_user 
     unless current_user.try(:id) == @user.id 
-      flash[:danger] = "ログインしてください。" 
-      redirect_to root_path 
+      flash[:danger] = "不正なアクセス。" 
+      redirect_to root_url
     end 
   end
   
