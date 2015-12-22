@@ -34,6 +34,24 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def following
+    @title = "フォロー"
+    @user = User.find(params[:id])
+    @users = @user.following_users
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "フォロワー"
+    @user = User.find(params[:id])
+    @users = @user.follower_users
+    render 'show_follow'
+  end
+  
+  def index
+    @users = User.all
+  end
 
   def index
     @users = User.page(params[:page]).per(5)
@@ -41,7 +59,7 @@ class UsersController < ApplicationController
   
   def favorite
     @title = 'お気に入り'
-    @tweet = current_user.microposts.build
+    @micropost = current_user.microposts.build
     @feed_microposts = current_user.favorite_microposts.paginate(page: params[:page])
     render template: 'home'
   end
@@ -50,8 +68,8 @@ class UsersController < ApplicationController
 
   def from_current_user 
     unless current_user.try(:id) == @user.id 
-      flash[:danger] = "ログインしてください。" 
-      redirect_to root_path 
+      flash[:danger] = "不正なアクセス。" 
+      redirect_to root_url
     end 
   end
   

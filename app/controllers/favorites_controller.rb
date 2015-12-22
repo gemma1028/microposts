@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @micropost = Favorite.find(params[:id]).tweet
-    current_user.unfavorite!(@tweet)
+    @micropost = Favorite.find(params[:id]).micropost
+    current_user.unfavorite!(@micropost)
   end
 end
