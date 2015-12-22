@@ -6,7 +6,7 @@
         <%= @user.name %>
       </h1>
       <span><%= link_to "投稿を見る", @user %></span>
-      <span><%= pluralize(@user.microposts.count, "tweet") %></span>
+      <span><%= pluralize(@user.microposts.count, "ツイート") %></span>
     </section>
           <section class="stats">
         <%= render 'shared/stats' %>
