@@ -1,20 +1,14 @@
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %> <!-- ここを追加 -->
-
-      <%= f.label :氏名 %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, class: 'form-control' %>
-      
-      <%= f.label :地域 %>
-      <%= f.text_field :region, class: "form-control" %> 
-
-      <%= f.label :パスワード %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "パスワード確認" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "アカウント作成", class: "btn btn-primary" %>
-    <% end %>
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :氏名 %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :メールアドレス %>
+  <%= f.email_field :email, class: 'form-control' %>
+  <%= f.label :地域 %>
+  <%= f.text_field :region, class: "form-control" %> 
+  <%= f.label :パスワード %>
+  <%= f.password_field :password, class: 'form-control' %>
+  <%= f.label :password_confirmation, "パスワード確認" %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <%= f.submit "アカウント作成", class: "btn btn-primary" %>
+<% end %>

@@ -1,21 +1,28 @@
-<h1>アカウント設定</h1> 
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %> <!-- ここを追加 -->
-
-      <%= f.label :氏名 %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email, class: 'form-control' %>
-      
-      <%= f.label :地域 %> 
-      <%= f.text_field :region, class: "form-control" %> 
-
-      <%= f.label :パスワード %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "パスワード確認" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "設定変更", class: "btn btn-primary" %>
-    <% end %>
+<div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+    </section>
+    </aside>
+  <div class="col-md-8">
+    <h3>アカウント設定</h3> 
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :氏名 %>
+        <%= f.text_field :name, class: 'form-control' %>
+        <%= f.label :メールアドレス %>
+        <%= f.email_field :email, class: 'form-control' %>
+        <%= f.label :地域 %> 
+        <%= f.text_field :region, class: "form-control" %> 
+        <%= f.label :パスワード %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password_confirmation, "パスワード確認" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <%= f.submit "設定変更", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>

@@ -57,12 +57,11 @@ class UsersController < ApplicationController
     @users = User.page(params[:page]).per(5)
   end
   
-  def favorite
+  def favoriting_microposts 
     @title = 'お気に入り'
-    @micropost = current_user.microposts.build
-    @feed_microposts = current_user.favorite_microposts.paginate(page: params[:page])
-    render template: 'home'
-  end
+    @user = User.find(params[:id]) 
+    @microposts = @user.favoriting_microposts.page(params[:page]).per(5)
+  end 
  
   private  
 

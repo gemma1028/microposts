@@ -1,13 +1,13 @@
 class FavoritesController < ApplicationController
-  before_action :signed_in_user
 
   def create
     @micropost = Micropost.find(params[:micropost_id])
-    current_user.favorite!(@micropost)
+    @micropost.favorite(current_user)
   end
 
   def destroy
-    @micropost = Favorite.find(params[:id]).micropost
-    current_user.unfavorite!(@micropost)
+    @favorite = Favorite.find(params[:id])
+    @micropost = Micropost.find(@favorite.micropost_id) 
+    @micropost.unfavorite(current_user) 
   end
 end

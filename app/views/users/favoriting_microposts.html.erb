@@ -8,8 +8,14 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <h3>ユーザー一覧</h3>
-      <%= render 'index' %>
+    <% if @user.favoriting_microposts.any? %>
+      <h3>お気に入り一覧</h3>
+      <ul class="users follow">
+        <ol class="microposts">
+            <%= render @user.favoriting_microposts %>
+        </ol>
+      </ul>
+    <% end %>
   </div>
 </div>
 
