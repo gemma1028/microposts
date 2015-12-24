@@ -1,0 +1,9 @@
+<a href="<%= url_for(favoriting_microposts_user_path(user)) %>"> 
+ <% if user == current_user %> 
+     <%= content_tag(:span, user.favoriting_microposts.count,  
+         class: "microposts_count favoriting_microposts_count") %> 
+ <% else %> 
+     <%= user.favoriting_microposts.count %> 
+ <% end %> 
+     Favoritings 
+</a> 

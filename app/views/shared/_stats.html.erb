@@ -1,0 +1,21 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= favoriting_microposts_user_path(@user) %>">
+    <strong id="favoritings" class="stat">
+      <%= @user.favoriting_microposts.count %>
+    </strong>
+    お気に入り
+  </a>
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.following_users.count %>
+    </strong>
+    フォロー
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.follower_users.count %>
+    </strong>
+    フォロワー
+  </a>
+</div>

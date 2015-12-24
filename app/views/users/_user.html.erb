@@ -1,0 +1,8 @@
+<li>
+  <%= gravatar_for(user, size: 50) %>
+  <%= link_to user.name, user %>
+  <span id="user_<%= user.id %>" class="follow-wrapper">
+    <%= render 'follow_form', user: user %>
+    <br><br><br>
+  </span>
+</li>

@@ -1,0 +1,21 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @user.favoriting_microposts.any? %>
+      <h3>お気に入り一覧</h3>
+      <ul class="users follow">
+        <ol class="microposts">
+            <%= render @user.favoriting_microposts %>
+        </ol>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
